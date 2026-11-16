@@ -23,10 +23,25 @@ cd frontend
 npm run build   # output in frontend/dist
 ```
 
-## Deployment (planned)
+## Deployment
 
-WazoHost VPS → Nginx serving `frontend/dist`, later Gunicorn for the Django API.
-Domain: gcitz.org.
+Live at https://gcitz.org on the WazoHost VPS (`root@167.86.72.150`), Nginx serving
+`frontend/dist` with Let's Encrypt SSL (auto-renews via certbot). Phase 2 will add
+Gunicorn for the Django API behind the commented `/api/` block in `deploy/nginx-gcitz.conf`.
+
+Redeploy after pushing to `main`:
+
+```bash
+./deploy/ssh-deploy.sh
+```
+
+This SSHes into the VPS and runs `deploy/deploy.sh` there (git pull, `npm ci`,
+`npm run build`, nginx reload), then smoke-tests the live site. Files:
+
+- `deploy/setup-vps.sh` — one-time server setup (already run)
+- `deploy/deploy.sh` — runs on the server; loads nvm Node automatically
+- `deploy/ssh-deploy.sh` — run from your machine; override host with `VPS=user@host`
+- `deploy/nginx-gcitz.conf` — Nginx site (certbot has since added the SSL/redirect blocks on the server)
 
 ## Phase 2 (Django)
 
