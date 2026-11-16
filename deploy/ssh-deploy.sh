@@ -20,6 +20,5 @@ fi
 echo "==> Deploying to $VPS"
 ssh -o ServerAliveInterval=60 "$VPS" "bash $APP_DIR/deploy/deploy.sh"
 
-echo "==> Smoke test"
-curl -s -o /dev/null -w "https://gcitz.org/  %{http_code}\n" --max-time 20 https://gcitz.org/
-curl -s -o /dev/null -w "https://gcitz.org/about-us  %{http_code}\n" --max-time 20 https://gcitz.org/about-us
+echo "==> Smoke test (from the VPS, so local DNS caching can't skew it)"
+ssh "$VPS" 'for p in / /about-us; do curl -s -o /dev/null -w "https://gcitz.org$p  %{http_code}\n" --max-time 20 "https://gcitz.org$p"; done'
