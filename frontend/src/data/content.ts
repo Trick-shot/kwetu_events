@@ -175,13 +175,48 @@ export const ABOUT = {
   teamBlurb:
     "We also bring a strong interest in coaching and capability building, within an emphasis on emotional intelligence and effective partners relations.",
   team: [
-    { name: "Dr. Switbert Zacharia Mkama", role: "Chairman of the Board", img: `${A}/team/zacharia.jpg` },
-    { name: "Ms Josca", role: "", img: `${A}/team/josca.jpg` },
-    { name: "Amani Sapi Mkwawa", role: "", img: `${A}/team/amani.jpg` },
-    { name: "Advocate Pasience Mlowe", role: "", img: `${A}/team/pasience.jpg` },
-    { name: "Alpha Emil Bisimba", role: "", img: `${A}/team/alpha.jpg` },
-    { name: "Adenmaris Gerald Kowero", role: "", img: `${A}/team/adenmaris.jpg` },
-    { name: "Peter", role: "", img: `${A}/team/peter.jpg` }, // TODO client: full name + title
+    {
+      name: "Dr. Switbert Z. Mkama (PhD)",
+      role: "Chairman of the Board",
+      img: `${A}/team/zacharia.jpg`,
+      bio: "Chairs the Board and plays a major part in protecting and advancing the image of the organisation. Vast experience in leadership and environment activities. Hon. Dr. Mkama is a Member of Parliament and Deputy Minister, Ministry of Communication and Information Technology.",
+    },
+    {
+      name: "Ms. Josca Amri Mwoshezi",
+      role: "Vice Chairwoman",
+      img: `${A}/team/josca.jpg`,
+      bio: "Assists the Board Chairman. Master\u2019s in Mental Health, Muhimbili University of Health and Allied Sciences. Retired nurse with over 25 years at Muhimbili National Hospital, including more than five years in managerial positions.",
+    },
+    {
+      name: "Amani Sapi Mkwawa",
+      role: "Executive Director & Founder",
+      img: `${A}/team/amani.jpg`,
+      bio: "Environmentalist and founder of Kwetu Events International Initiative and the World Environment Day Project (JOWED). Vast experience in project management, fundraising and fund management. Basic education in Accountancy; currently pursuing a BA in Natural Resources Management at the Open University of Tanzania. Also Secretary to the Board & CEO.",
+    },
+    {
+      name: "Adv. Pasience Mlowe",
+      role: "Chief Legal Advisor & Human Resource Officer",
+      img: `${A}/team/pasience.jpg`,
+      bio: "Handles all legal and human-resource affairs. Vast experience in human-rights affairs; tremendous experience in NGO management and a reputable work history.",
+    },
+    {
+      name: "Alpha Emil Bisimba",
+      role: "Chief Financial Officer",
+      img: `${A}/team/alpha.jpg`,
+      bio: "Handles financial affairs. BA (Hons) Accounting, University of Bedfordshire (UK); pursuing ACCA. Internal Auditor at Aga Khan Hospital; member of the Institute of Internal Auditors Tanzania (IIA). Also a Board Member.",
+    },
+    {
+      name: "Adenmaris Gerald Kowero",
+      role: "Chief Communication Officer",
+      img: `${A}/team/adenmaris.jpg`,
+      bio: "Handles communication and branding. A unique touch in branding: the JOWED team relies on her talents in all media campaigns, marketing and online activities. Diploma in Law, Institute of Judicial Administration Lushoto (IJA); government employee, Mbozi District Court. Also a Board Member.",
+    },
+    {
+      name: "Peter Clement Kilanga",
+      role: "Chief Operations Officer",
+      img: `${A}/team/peter.jpg`,
+      bio: "Handles all major operations: our engine. Reputable project-management history, direct community-engagement work, a team player who does great under pressure.",
+    },
   ],
 };
 

@@ -1,15 +1,21 @@
+import { useState } from "react";
 import {
   Box,
   Button,
   Card,
+  CardActionArea,
   CardMedia,
   Container,
+  Dialog,
+  DialogContent,
   Grid,
+  IconButton,
   Paper,
   Stack,
   Typography,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CloseIcon from "@mui/icons-material/Close";
 import CloudDownloadOutlinedIcon from "@mui/icons-material/CloudDownloadOutlined";
 import PageBanner from "../components/PageBanner";
 import Reveal from "../components/Reveal";
@@ -34,6 +40,7 @@ function ArrowItem({ title, text }: { title?: string; text: string }) {
 }
 
 export default function About() {
+  const [member, setMember] = useState<(typeof ABOUT.team)[number] | null>(null);
   return (
     <Box>
       <PageBanner title="About us" crumb="About Us" />
@@ -176,23 +183,25 @@ export default function About() {
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={m.name}>
                 <Reveal delay={(i % 3) * 0.12}>
                   <Card sx={{ position: "relative" }}>
-                    <CardMedia
-                      component="img"
-                      image={m.img}
-                      alt={m.name}
-                      sx={{ aspectRatio: "267/352", objectFit: "cover" }}
-                    />
-                    <Paper
-                      elevation={3}
-                      sx={{ position: "absolute", left: 16, right: 16, bottom: 16, p: 1.5, textAlign: "center" }}
-                    >
-                      <Typography sx={{ fontWeight: 700 }}>{m.name}</Typography>
-                      {m.role && (
-                        <Typography variant="body2" color="text.secondary">
-                          {m.role}
-                        </Typography>
-                      )}
-                    </Paper>
+                    <CardActionArea onClick={() => setMember(m)} aria-label={`View profile: ${m.name}`}>
+                      <CardMedia
+                        component="img"
+                        image={m.img}
+                        alt={m.name}
+                        sx={{ aspectRatio: "267/352", objectFit: "cover" }}
+                      />
+                      <Paper
+                        elevation={3}
+                        sx={{ position: "absolute", left: 16, right: 16, bottom: 16, p: 1.5, textAlign: "center" }}
+                      >
+                        <Typography sx={{ fontWeight: 700 }}>{m.name}</Typography>
+                        {m.role && (
+                          <Typography variant="body2" color="text.secondary">
+                            {m.role}
+                          </Typography>
+                        )}
+                      </Paper>
+                    </CardActionArea>
                   </Card>
                 </Reveal>
               </Grid>
@@ -200,6 +209,49 @@ export default function About() {
           </Grid>
         </Container>
       </Box>
+
+      {/* Member profile dialog */}
+      <Dialog open={!!member} onClose={() => setMember(null)} maxWidth="sm" fullWidth>
+        {member && (
+          <DialogContent sx={{ p: 0 }}>
+            <IconButton
+              onClick={() => setMember(null)}
+              aria-label="Close profile"
+              sx={{
+                position: "absolute",
+                right: 8,
+                top: 8,
+                zIndex: 1,
+                bgcolor: "rgba(255,255,255,.85)",
+                "&:hover": { bgcolor: "#fff" },
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            <Grid container>
+              <Grid size={{ xs: 12, sm: 5 }}>
+                <Box
+                  component="img"
+                  src={member.img}
+                  alt={member.name}
+                  sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </Grid>
+              <Grid size={{ xs: 12, sm: 7 }}>
+                <Box sx={{ p: 3 }}>
+                  <Typography variant="h5" sx={{ mb: 0.5 }}>
+                    {member.name}
+                  </Typography>
+                  <Typography sx={{ color: BRAND.primary, fontWeight: 600, mb: 2 }}>
+                    {member.role}
+                  </Typography>
+                  <Typography variant="body2">{member.bio}</Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </DialogContent>
+        )}
+      </Dialog>
     </Box>
   );
 }
