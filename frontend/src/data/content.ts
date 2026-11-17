@@ -5,8 +5,8 @@
 const A = `${import.meta.env.BASE_URL}assets`;
 
 export const ASSETS = {
-  logo: `${A}/gci-logo.svg`, // PLACEHOLDER — swap for official GCI logo
-  logoWhite: `${A}/gci-logo-white.svg`, // PLACEHOLDER
+  logo: `${A}/gci-logo.png`, // official GCI logo
+  logoWhite: `${A}/gci-logo-dark-bg.png`, // official logo, blue lightened for dark footer
   banner: `${A}/banner.jpg`,
   heroBg: `${A}/hero.jpg`,
   saveTheWorld: `${A}/save-the-world.png`,
@@ -20,7 +20,7 @@ export const SITE = {
   address:
     "New Vibe - Kinyerezi Street, House No. 9 Near Ilala Municipal Court Ilala, P.O. Box 4447, Dar Es Salaam, Tanzania",
   addressShort: "P.O. Box 4447, Dar Es Salaam, Tanzania",
-  phones: ["+255 742 993 331", "+255 736 993 331"],
+  phones: ["+255 722 871 186"],
   emails: ["info@gcitz.org"], // TODO client: confirm GCI's phones + address
 };
 

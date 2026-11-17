@@ -3,9 +3,9 @@ import { createTheme } from "@mui/material/styles";
 // GCI brand palette — logo-derived colours only (Green Conservation Initiative)
 // Semantic names so the next rebrand is a value change, not a find-and-replace.
 export const BRAND = {
-  primary: "#78C820", // GCI green
-  secondary: "#3670C0", // GCI blue
-  primaryDark: "#5FA315", // hover shade of GCI green
+  primary: "#80CD29", // GCI green
+  secondary: "#3871C1", // GCI blue
+  primaryDark: "#68A81F", // hover shade of GCI green
   ink: "#0E0E0E",
   body: "#555555",
   paper: "#FFFFFF",
@@ -40,7 +40,7 @@ const theme = createTheme({
           color: "#FFFFFF",
           padding: "12px 28px",
           boxShadow: "none",
-          "&:hover": { backgroundColor: "#5FA315", boxShadow: "none" },
+          "&:hover": { backgroundColor: "#68A81F", boxShadow: "none" },
         },
       },
     },
