@@ -22,7 +22,7 @@ export default function Preloader() {
             position: "fixed",
             inset: 0,
             zIndex: 2000,
-            background: BRAND.yellow,
+            background: BRAND.primary,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

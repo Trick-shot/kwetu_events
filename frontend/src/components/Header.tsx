@@ -34,7 +34,7 @@ export default function Header() {
             <Box
               component="img"
               src={ASSETS.logo}
-              alt="Kwetu Events International Initiative"
+              alt="Green Conservation Initiative"
               sx={{ height: stuck ? 52 : 64, transition: "height .3s" }}
             />
           </Box>
@@ -58,7 +58,7 @@ export default function Header() {
                     textDecoration: "none",
                     position: "relative",
                     color: active ? "#fff" : "text.primary",
-                    bgcolor: active ? BRAND.navy : "transparent",
+                    bgcolor: active ? BRAND.secondary : "transparent",
                     "&::after": active
                       ? {
                           content: '""',
@@ -67,10 +67,10 @@ export default function Header() {
                           right: 0,
                           bottom: 0,
                           height: 3,
-                          bgcolor: BRAND.yellow,
+                          bgcolor: BRAND.primary,
                         }
                       : undefined,
-                    "&:hover": { color: active ? "#fff" : BRAND.navy },
+                    "&:hover": { color: active ? "#fff" : BRAND.secondary },
                   }}
                 >
                   {item.label}

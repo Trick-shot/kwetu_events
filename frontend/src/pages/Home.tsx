@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Card,
   Container,
   Grid,
   Paper,
@@ -15,8 +14,9 @@ import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
+import PartnerMarquee from "../components/PartnerMarquee";
 import SectionHeading from "../components/SectionHeading";
-import { ASSETS, HOME, PARTNERS } from "../data/content";
+import { ASSETS, HOME } from "../data/content";
 import { BRAND } from "../theme";
 
 const involveIcons = [
@@ -132,7 +132,7 @@ export default function Home() {
                     position: "absolute",
                     left: { xs: 0, md: -24 },
                     top: "35%",
-                    bgcolor: BRAND.navy,
+                    bgcolor: BRAND.secondary,
                     color: "#fff",
                     px: 1.5,
                     py: 3,
@@ -167,7 +167,7 @@ export default function Home() {
                 <Grid size={{ xs: 12, sm: 6, md: 3 }} key={item.title}>
                   <Reveal delay={i * 0.12}>
                     <Box sx={{ textAlign: "center" }}>
-                      <Icon sx={{ fontSize: 48, color: BRAND.yellow, mb: 1.5 }} />
+                      <Icon sx={{ fontSize: 48, color: BRAND.primary, mb: 1.5 }} />
                       <Typography variant="h6" sx={{ mb: 1.5 }}>
                         {item.title}
                       </Typography>
@@ -189,34 +189,7 @@ export default function Home() {
           </Typography>
           <Typography sx={{ maxWidth: 760, mx: "auto", mb: 6 }}>{HOME.partnersBlurb}</Typography>
         </Reveal>
-        <Grid container spacing={4} sx={{ justifyContent: "center", alignItems: "center" }}>
-          {PARTNERS.map((p, i) => (
-            <Grid size={{ xs: 4, sm: 3, md: 2 }} key={p.name}>
-              <Reveal delay={(i % 6) * 0.08}>
-                <Card
-                  elevation={0}
-                  sx={{
-                    p: 1,
-                    display: "flex",
-                    justifyContent: "center",
-                    filter: "grayscale(1)",
-                    opacity: 0.75,
-                    transition: "all .3s",
-                    "&:hover": { filter: "none", opacity: 1 },
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src={p.img}
-                    alt={p.name}
-                    loading="lazy"
-                    sx={{ maxHeight: 72, maxWidth: "100%", objectFit: "contain" }}
-                  />
-                </Card>
-              </Reveal>
-            </Grid>
-          ))}
-        </Grid>
+        <PartnerMarquee />
       </Container>
     </Box>
   );

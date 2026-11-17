@@ -75,7 +75,7 @@ export default function Contact() {
             <Grid size={{ xs: 12, md: 5 }}>
               <Reveal>
                 <Stack direction="row" spacing={1.5} sx={{ alignItems: "center", mb: 1.5 }}>
-                  <Box sx={{ width: 32, height: 3, bgcolor: BRAND.yellow }} />
+                  <Box sx={{ width: 32, height: 3, bgcolor: BRAND.primary }} />
                 </Stack>
                 <Typography variant="h3" sx={{ color: "#fff", fontSize: { xs: 28, md: 34 }, mb: 5 }}>
                   Get in touch for any kind of help and informations
@@ -141,7 +141,7 @@ export default function Contact() {
                         Send now
                       </Button>
                       {sent && (
-                        <Typography sx={{ color: BRAND.yellow, mt: 2 }}>
+                        <Typography sx={{ color: BRAND.primary, mt: 2 }}>
                           Thank you! Your message has been received. (Form delivery goes live with the
                           backend in phase 2.)
                         </Typography>

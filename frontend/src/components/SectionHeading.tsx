@@ -22,7 +22,7 @@ export default function SectionHeading({ label, title, center, light }: SectionH
             justifyContent: center ? "center" : "flex-start",
           }}
         >
-          <Box sx={{ width: 32, height: 3, bgcolor: BRAND.yellow }} />
+          <Box sx={{ width: 32, height: 3, bgcolor: BRAND.primary }} />
           <Typography sx={{ fontSize: 14, color: light ? "rgba(255,255,255,.85)" : "text.secondary" }}>
             {label}
           </Typography>

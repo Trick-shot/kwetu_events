@@ -44,7 +44,7 @@ export default function ProjectDetail() {
             <Box component="ul" sx={{ pl: 0, listStyle: "none" }}>
               {project.bullets.map((b, i) => (
                 <Stack component="li" direction="row" spacing={1.2} key={i} sx={{ mb: 1.5 }}>
-                  <ArrowForwardIcon sx={{ color: BRAND.yellow, fontSize: 18, mt: 0.5, flexShrink: 0 }} />
+                  <ArrowForwardIcon sx={{ color: BRAND.primary, fontSize: 18, mt: 0.5, flexShrink: 0 }} />
                   <Typography variant="body2">{b}</Typography>
                 </Stack>
               ))}

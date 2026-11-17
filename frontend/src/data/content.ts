@@ -5,8 +5,8 @@
 const A = `${import.meta.env.BASE_URL}assets`;
 
 export const ASSETS = {
-  logo: `${A}/logo.png`,
-  logoWhite: `${A}/logo-white.png`,
+  logo: `${A}/gci-logo.svg`, // PLACEHOLDER — swap for official GCI logo
+  logoWhite: `${A}/gci-logo-white.svg`, // PLACEHOLDER
   banner: `${A}/banner.jpg`,
   heroBg: `${A}/hero.jpg`,
   saveTheWorld: `${A}/save-the-world.png`,
@@ -15,13 +15,13 @@ export const ASSETS = {
 };
 
 export const SITE = {
-  name: "Kwetu Events International Initiative",
-  short: "KEI",
+  name: "Green Conservation Initiative",
+  short: "GCI",
   address:
     "New Vibe - Kinyerezi Street, House No. 9 Near Ilala Municipal Court Ilala, P.O. Box 4447, Dar Es Salaam, Tanzania",
   addressShort: "P.O. Box 4447, Dar Es Salaam, Tanzania",
   phones: ["+255 742 993 331", "+255 736 993 331"],
-  emails: ["info@kei.or.tz", "ceo@kei.or.tz"],
+  emails: ["info@gcitz.org"], // TODO client: confirm GCI's phones + address
 };
 
 export const NAV = [
@@ -54,7 +54,7 @@ export const HOME = {
       text: "We strive to unite all stakeholders in advocating for renewable energy, sustainable transportation, reforestation, and climate change awareness through daily joint community efforts.",
     },
     {
-      title: "FOCUS",
+      title: "Focus",
       text: "Use of technology and proper projects management are key tools to maintaining our mission and vision. We keep environment restoration as our focus of attention.",
     },
   ],
@@ -62,7 +62,7 @@ export const HOME = {
     label: "About us",
     title: "We're a crucial stakeholder on Environment Conservation.",
     paragraphs: [
-      "Welcome to Kwetu Events International Initiative. Aligned with the United Nations' global efforts in ecosystem restoration and forestation, we are dedicated to tackling climate change and global warming from our base in Tanzania. We use creative arts, technology, and strategic communication to address urgent environmental challenges.",
+      "Welcome to Green Conservation Initiative. Aligned with the United Nations' global efforts in ecosystem restoration and forestation, we are dedicated to tackling climate change and global warming from our base in Tanzania. We use creative arts, technology, and strategic communication to address urgent environmental challenges.",
       "Our team works alongside the UN and local governments to enhance environmental conservation, forestry, and biodiversity. Through community engagement and innovative approaches, we strive to create lasting positive impacts. Discover more about our initiatives and join us in making a greener planet.",
     ],
     yearsBadge: "6 Years of Experience",
@@ -112,24 +112,21 @@ export const PARTNERS = [
 export const ABOUT = {
   title: "Driving Global Environmental Change Through Local Action",
   paragraphs: [
-    "The United Nations works onto ecosystem restoration and forestation of the world. Tanzania as a country is tirelessly dedicated into acting on climate change and global warming. Kwetu Events International Initiative is an integrated communication & action based Non Government Organization (NGO) that understands the struggle of making the world a better place for its habitats and the universe well being.",
-    "Proper and timely knowledge communication, use of creative arts, technology, the internet, and through community engagement Kwetu Events International Initiative is dedicated to sustainably compliment these UN & Government's efforts towards environmental conservation, forestry & biodiversity, and making the world a better place.",
+    "The United Nations works onto ecosystem restoration and forestation of the world. Tanzania as a country is tirelessly dedicated into acting on climate change and global warming. Green Conservation Initiative is an integrated communication & action based Non Government Organization (NGO) that understands the struggle of making the world a better place for its habitats and the universe well being.",
+    "Proper and timely knowledge communication, use of creative arts, technology, the internet, and through community engagement Green Conservation Initiative is dedicated to sustainably compliment these UN & Government's efforts towards environmental conservation, forestry & biodiversity, and making the world a better place.",
   ],
+  // DRAFT copy — needs Amani's approval
   nameMeaning: [
     {
-      term: "KWETU",
-      text: 'is a Swahili word meaning "Our Home"; Our NGO struggles to protect our earth which is home to humans, animals and biodiversity.',
+      term: "GREEN",
+      text: "We stand for a green planet; protecting the forests, mangroves, wetlands, freshwater sources and biodiversity that make Earth a home for humans, animals and all life.",
     },
     {
-      term: "Events",
-      text: "Our daily deeds have great impact on world wellbeing. Human activities are prompt to change. Today's events including global warming are results of our activities. What is to be done for resilience?",
+      term: "CONSERVATION",
+      text: "Conservation is our daily work; restoring ecosystems, promoting clean energy, recycling and eco-friendly livelihoods, and standing against environmental destruction.",
     },
     {
-      term: "International",
-      text: "It is only by linking local communities' efforts to the global conservation agenda can the world succeed. Our NGO is doing just that.",
-    },
-    {
-      term: "Initiative",
+      term: "INITIATIVE",
       text: "Grass-root innovative and inclusive efforts are potential to the global environment agenda. Carefully planned and results oriented initiations are to be adopted for success.",
     },
   ],
@@ -191,9 +188,9 @@ export const ABOUT = {
 export const WHAT_WE_DO = {
   title: "We're an action based NGO linking Community to Action",
   paragraphs: [
-    "Kwetu Events International Initiative (KEI) being an action based Non Government Organization (NGO) strives at making the world a better place for all life there is. To attain this KEI believes inclusivity is a must! And that these efforts should be on daily basis.",
+    "Green Conservation Initiative (GCI) being an action based Non Government Organization (NGO) strives at making the world a better place for all life there is. To attain this GCI believes inclusivity is a must! And that these efforts should be on daily basis.",
     "Our main responsibility is to become extra-creative to reaching our desired vision without compromising our core values; we are doing so in alignment with global efforts towards sustainable environment conservation and the pursuit of the 2030 Agenda for Sustainable Development.",
-    "KEI firmly believe economic reasons are often major ingredient to environment ruin and therefore the major solution is to innovatively propose and introduce eco-friendly businesses which will provide alternatives to traditional commerce such as charcoal production and selling which is harmful to the environment.",
+    "GCI firmly believe economic reasons are often major ingredient to environment ruin and therefore the major solution is to innovatively propose and introduce eco-friendly businesses which will provide alternatives to traditional commerce such as charcoal production and selling which is harmful to the environment.",
     "It is our belief that providing communities with natural gas bottles for their cooking itself is not enough! Ask yourself what happens when they run out of gas, where do they get the money to refuel, won't they opt to the old ways of selling woods and charcoal production for sale in order to refuel their natural cooking gas bottles? We therefore apart from educating our communities on the impacts of environmental destruction and advantages of conservation, train them on sustainable green businesses which will earn our communities even more income such as bee keeping and selling of bee products, we go as far as networking them with international markets. It is only by alternative businesses and by providing affordable technology shall our communities opt to environment conservation.",
     "It is our duty therefore to creatively be at forefront in the fields, to educate our communities from young ones in schools to youths in colleges, to every household on eco-system restoration, train on eco-friendly businesses, and encourage Green-Businesses Start-ups.",
     "We then communicate our efforts to stakeholders and urge, both local and International Organizations to partner and sponsor these efforts in order to bring about tangible and sustainable results.",
@@ -212,7 +209,7 @@ export interface Project {
 export const PROJECTS_PAGE = {
   title: "Empowering Communities Through Sustainable Innovation",
   blurb:
-    "KEI empowers communities with eco-friendly solutions and green business opportunities, promoting sustainable practices for a greener future.",
+    "GCI empowers communities with eco-friendly solutions and green business opportunities, promoting sustainable practices for a greener future.",
 };
 
 export const PROJECTS: Project[] = [
@@ -282,7 +279,7 @@ export interface NewsPost {
 export const NEWS_PAGE = {
   title: "Latest News & Updates",
   blurb:
-    "Stay updated with Kwetu Events International Initiative's latest projects and milestones. Our news and updates provide insights into our ongoing efforts in environmental conservation and community engagement.",
+    "Stay updated with Green Conservation Initiative's latest projects and milestones. Our news and updates provide insights into our ongoing efforts in environmental conservation and community engagement.",
 };
 
 // TODO: capture full post bodies + real images from live site at content-migration time

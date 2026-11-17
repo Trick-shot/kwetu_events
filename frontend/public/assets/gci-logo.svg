@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="96" viewBox="0 0 460 96">
+  <!-- PLACEHOLDER wordmark — replace with the official GCI logo file -->
+  <rect x="4" y="8" width="80" height="80" rx="16" fill="#78C820"/>
+  <path d="M44 70 C44 48 52 36 68 28 C62 48 58 60 44 70 Z" fill="#FFFFFF" opacity="0.9"/>
+  <path d="M42 70 C40 54 32 44 20 40 C26 56 32 64 42 70 Z" fill="#FFFFFF" opacity="0.7"/>
+  <text x="98" y="48" font-family="Roboto, Arial, sans-serif" font-size="34" font-weight="700" fill="#0E0E0E">Green Conservation</text>
+  <text x="98" y="82" font-family="Roboto, Arial, sans-serif" font-size="30" font-weight="700" fill="#3670C0" letter-spacing="2">INITIATIVE</text>
+</svg>

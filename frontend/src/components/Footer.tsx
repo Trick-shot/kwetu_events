@@ -38,13 +38,13 @@ export default function Footer() {
             </Typography>
             <Stack spacing={1}>
               <Stack direction="row" spacing={1.2} sx={{ alignItems: "center" }}>
-                <PhoneIcon sx={{ fontSize: 16, color: BRAND.yellow }} />
+                <PhoneIcon sx={{ fontSize: 16, color: BRAND.primary }} />
                 <Typography variant="body2" sx={{ color: "inherit" }}>
                   {SITE.phones[0]}
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.2} sx={{ alignItems: "center" }}>
-                <MailOutlineIcon sx={{ fontSize: 16, color: BRAND.yellow }} />
+                <MailOutlineIcon sx={{ fontSize: 16, color: BRAND.primary }} />
                 <Typography variant="body2" sx={{ color: "inherit" }}>
                   {SITE.emails[0]}
                 </Typography>
@@ -68,10 +68,10 @@ export default function Footer() {
                       display: "inline-flex",
                       alignItems: "center",
                       fontSize: 14,
-                      "&:hover": { color: BRAND.yellow },
+                      "&:hover": { color: BRAND.primary },
                     }}
                   >
-                    <ChevronRightIcon sx={{ fontSize: 16, color: BRAND.yellow, mr: 0.5 }} />
+                    <ChevronRightIcon sx={{ fontSize: 16, color: BRAND.primary, mr: 0.5 }} />
                     {item.label}
                   </MuiLink>
                 </Grid>
@@ -94,7 +94,7 @@ export default function Footer() {
                   sx={{
                     bgcolor: "rgba(255,255,255,.1)",
                     color: "#fff",
-                    "&:hover": { bgcolor: BRAND.yellow },
+                    "&:hover": { bgcolor: BRAND.primary },
                   }}
                 >
                   <Icon fontSize="small" />

@@ -1,19 +1,22 @@
 import { createTheme } from "@mui/material/styles";
 
-// KEI brand palette (from kei.or.tz / Figma)
+// GCI brand palette — logo-derived colours only (Green Conservation Initiative)
+// Semantic names so the next rebrand is a value change, not a find-and-replace.
 export const BRAND = {
-  yellow: "#F7C522",
-  navy: "#001846",
+  primary: "#78C820", // GCI green
+  secondary: "#3670C0", // GCI blue
+  primaryDark: "#5FA315", // hover shade of GCI green
   ink: "#0E0E0E",
   body: "#555555",
   paper: "#FFFFFF",
   light: "#F5F6F8",
+  dark: "#101014", // footer / dark bands
 };
 
 const theme = createTheme({
   palette: {
-    primary: { main: BRAND.yellow, contrastText: "#FFFFFF" },
-    secondary: { main: BRAND.navy, contrastText: "#FFFFFF" },
+    primary: { main: BRAND.primary, contrastText: "#FFFFFF" },
+    secondary: { main: BRAND.secondary, contrastText: "#FFFFFF" },
     text: { primary: BRAND.ink, secondary: BRAND.body },
     background: { default: BRAND.paper },
   },
@@ -37,7 +40,7 @@ const theme = createTheme({
           color: "#FFFFFF",
           padding: "12px 28px",
           boxShadow: "none",
-          "&:hover": { backgroundColor: "#e5b51a", boxShadow: "none" },
+          "&:hover": { backgroundColor: "#5FA315", boxShadow: "none" },
         },
       },
     },

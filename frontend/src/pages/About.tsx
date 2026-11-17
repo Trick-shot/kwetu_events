@@ -20,7 +20,7 @@ import { BRAND } from "../theme";
 function ArrowItem({ title, text }: { title?: string; text: string }) {
   return (
     <Stack direction="row" spacing={1.2} sx={{ mb: 2 }}>
-      <ArrowForwardIcon sx={{ color: BRAND.yellow, fontSize: 18, mt: 0.5, flexShrink: 0 }} />
+      <ArrowForwardIcon sx={{ color: BRAND.primary, fontSize: 18, mt: 0.5, flexShrink: 0 }} />
       <Typography variant="body2">
         {title && (
           <Box component="strong" sx={{ color: "text.primary" }}>
@@ -66,7 +66,7 @@ export default function About() {
         {/* Name meaning */}
         <Reveal>
           <Typography variant="h5" sx={{ mt: 8, mb: 4 }}>
-            Our Name: Kwetu Events International Initiative (KEI) is elaborated as follows
+            Our Name: Green Conservation Initiative (GCI) is elaborated as follows
           </Typography>
         </Reveal>
         <Grid container columnSpacing={8}>
@@ -121,7 +121,7 @@ export default function About() {
           <Paper
             elevation={0}
             sx={{
-              bgcolor: BRAND.navy,
+              bgcolor: BRAND.secondary,
               color: "#fff",
               mt: 8,
               px: { xs: 3, md: 5 },
