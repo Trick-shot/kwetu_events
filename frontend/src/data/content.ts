@@ -17,11 +17,11 @@ export const ASSETS = {
 export const SITE = {
   name: "Green Conservation Initiative",
   short: "GCI",
-  address:
-    "New Vibe - Kinyerezi Street, House No. 9 Near Ilala Municipal Court Ilala, P.O. Box 4447, Dar Es Salaam, Tanzania",
+  address: "P.O. Box 4447, Dar Es Salaam, Tanzania",
+  website: "www.gcitz.org",
   addressShort: "P.O. Box 4447, Dar Es Salaam, Tanzania",
   phones: ["+255 722 871 186"],
-  emails: ["info@gcitz.org"], // TODO client: confirm GCI's phones + address
+  emails: ["info@gcitz.org"],
 };
 
 export const NAV = [
@@ -109,26 +109,25 @@ export const PARTNERS = [
   { name: "Medical Stores Department", img: `${A}/partners/msd.png` },
 ];
 
+const D = `${import.meta.env.BASE_URL}docs`;
+
+export const ENDORSEMENTS = [
+  { label: "Office of the President", file: `${D}/endorsement-office-of-the-president.pdf` },
+  { label: "Mining Commission (JOWED)", file: `${D}/endorsement-mining-commission-jowed.pdf` },
+  { label: "VP's Office & NGO Certificate — 1", file: `${D}/endorsement-vp-office-ngo-certificate-1.pdf` },
+  { label: "VP's Office & NGO Certificate — 2", file: `${D}/endorsement-vp-office-ngo-certificate-2.pdf` },
+];
+
 export const ABOUT = {
   title: "Driving Global Environmental Change Through Local Action",
   paragraphs: [
     "The United Nations works onto ecosystem restoration and forestation of the world. Tanzania as a country is tirelessly dedicated into acting on climate change and global warming. Green Conservation Initiative is an integrated communication & action based Non Government Organization (NGO) that understands the struggle of making the world a better place for its habitats and the universe well being.",
     "Proper and timely knowledge communication, use of creative arts, technology, the internet, and through community engagement Green Conservation Initiative is dedicated to sustainably compliment these UN & Government's efforts towards environmental conservation, forestry & biodiversity, and making the world a better place.",
   ],
-  // DRAFT copy — needs Amani's approval
-  nameMeaning: [
-    {
-      term: "GREEN",
-      text: "We stand for a green planet; protecting the forests, mangroves, wetlands, freshwater sources and biodiversity that make Earth a home for humans, animals and all life.",
-    },
-    {
-      term: "CONSERVATION",
-      text: "Conservation is our daily work; restoring ecosystems, promoting clean energy, recycling and eco-friendly livelihoods, and standing against environmental destruction.",
-    },
-    {
-      term: "INITIATIVE",
-      text: "Grass-root innovative and inclusive efforts are potential to the global environment agenda. Carefully planned and results oriented initiations are to be adopted for success.",
-    },
+  ourName: [
+    "Green Conservation Initiative is an integrated communication & action-based Non-Governmental Organization (NGO) that understands the struggle of making the world a better place for its habitats and for the wellbeing of the universe. Tanzania is tirelessly dedicated to acting on climate change and global warming, and we exist to sustainably complement the efforts of the United Nations and the Government of Tanzania towards environmental conservation, forestry & biodiversity.",
+    "Our origin. We began as Kwetu Events International Initiative (KEI), \u2018Kwetu\u2019 meaning \u2018our home\u2019. That name captured our founding belief: the environment is our shared home, and protecting it starts at home, in our streets, schools, markets and forests. As our work expanded from events and campaigns into forestation, waste management, clean energy, green enterprise and land restoration, we adopted the name Green Conservation Initiative to reflect the full scope of what we do today.",
+    "What has not changed is our method: proper and timely knowledge communication, creative arts, technology and the internet, and deep community engagement. We use all of them together to turn awareness into action.",
   ],
   vision:
     "To create resilient and thriving local communities by fostering sustainable environments and effectively mitigating the impacts of climate change.",
@@ -236,6 +235,18 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "kivuli-cha-mama",
+    title: "Kivuli cha Mama",
+    img: `${A}/banner.jpg`, // TEMP image — awaiting project photo from client
+    body: ["Project description coming soon."], // awaiting client write-up
+  },
+  {
+    slug: "world-wetlands-day",
+    title: "World Wetlands Day",
+    img: `${A}/sdg.jpg`, // TEMP image — awaiting project photo from client
+    body: ["Project description coming soon."], // awaiting client write-up
+  },
+  {
     slug: "recycling",
     title: "Recycling",
     img: `${A}/projects/recycling.jpg`,
@@ -280,6 +291,8 @@ export const NEWS_PAGE = {
   title: "Latest News & Updates",
   blurb:
     "Stay updated with Green Conservation Initiative's latest projects and milestones. Our news and updates provide insights into our ongoing efforts in environmental conservation and community engagement.",
+  keiNote: "For more updates, visit www.kei.or.tz",
+  keiUrl: "https://www.kei.or.tz",
 };
 
 // TODO: capture full post bodies + real images from live site at content-migration time

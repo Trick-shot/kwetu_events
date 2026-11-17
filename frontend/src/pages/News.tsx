@@ -31,6 +31,18 @@ export default function News() {
           <Grid size={{ xs: 12, md: 5 }}>
             <Reveal delay={0.1}>
               <Typography>{NEWS_PAGE.blurb}</Typography>
+              <Typography sx={{ mt: 1.5 }}>
+                For more updates, visit{" "}
+                <Box
+                  component="a"
+                  href={NEWS_PAGE.keiUrl}
+                  target="_blank"
+                  rel="noopener"
+                  sx={{ color: "secondary.main", fontWeight: 600 }}
+                >
+                  www.kei.or.tz
+                </Box>
+              </Typography>
             </Reveal>
           </Grid>
         </Grid>

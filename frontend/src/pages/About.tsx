@@ -14,7 +14,7 @@ import CloudDownloadOutlinedIcon from "@mui/icons-material/CloudDownloadOutlined
 import PageBanner from "../components/PageBanner";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
-import { ABOUT, ASSETS } from "../data/content";
+import { ABOUT, ASSETS, ENDORSEMENTS } from "../data/content";
 import { BRAND } from "../theme";
 
 function ArrowItem({ title, text }: { title?: string; text: string }) {
@@ -63,21 +63,17 @@ export default function About() {
           </Grid>
         </Grid>
 
-        {/* Name meaning */}
+        {/* Our Name */}
         <Reveal>
-          <Typography variant="h5" sx={{ mt: 8, mb: 4 }}>
-            Our Name: Green Conservation Initiative (GCI) is elaborated as follows
+          <Typography variant="h4" sx={{ fontSize: 26, mt: 8, mb: 3 }}>
+            Our Name
           </Typography>
-        </Reveal>
-        <Grid container columnSpacing={8}>
-          {ABOUT.nameMeaning.map((n, i) => (
-            <Grid size={{ xs: 12, md: 6 }} key={n.term}>
-              <Reveal delay={i * 0.08}>
-                <ArrowItem title={n.term} text={n.text} />
-              </Reveal>
-            </Grid>
+          {ABOUT.ourName.map((t, i) => (
+            <Typography key={i} sx={{ mb: 2.5, maxWidth: 920 }}>
+              {t}
+            </Typography>
           ))}
-        </Grid>
+        </Reveal>
 
         {/* Vision / Mission / Objectives / Values */}
         <Grid container columnSpacing={8} sx={{ mt: 6 }}>
@@ -136,16 +132,26 @@ export default function About() {
             <Typography sx={{ fontSize: 18 }}>
               <strong>Want to know more about us?</strong>{" "}
               <Box component="span" sx={{ opacity: 0.85 }}>
-                Download our Endorsements...
+                Download our Certificates and Endorsements
               </Box>
             </Typography>
-            <Button
-              variant="contained"
-              startIcon={<CloudDownloadOutlinedIcon />}
-              sx={{ bgcolor: "#fff", color: "text.primary", "&:hover": { bgcolor: "#eee" } }}
-            >
-              Endorsements
-            </Button>
+            <Stack direction="row" sx={{ flexWrap: "wrap", gap: 1.5 }}>
+              {ENDORSEMENTS.map((e) => (
+                <Button
+                  key={e.file}
+                  component="a"
+                  href={e.file}
+                  target="_blank"
+                  rel="noopener"
+                  variant="contained"
+                  size="small"
+                  startIcon={<CloudDownloadOutlinedIcon />}
+                  sx={{ bgcolor: "#fff", color: "text.primary", "&:hover": { bgcolor: "#eee" } }}
+                >
+                  {e.label}
+                </Button>
+              ))}
+            </Stack>
           </Paper>
         </Reveal>
       </Container>
