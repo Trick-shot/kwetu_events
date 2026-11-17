@@ -175,12 +175,13 @@ export const ABOUT = {
   teamBlurb:
     "We also bring a strong interest in coaching and capability building, within an emphasis on emotional intelligence and effective partners relations.",
   team: [
-    { name: "Chairman of the Board", role: "", img: `${A}/team/chairman.jpg` },
+    { name: "Dr. Switbert Zacharia Mkama", role: "Chairman of the Board", img: `${A}/team/zacharia.jpg` },
     { name: "Ms Josca", role: "", img: `${A}/team/josca.jpg` },
     { name: "Amani Sapi Mkwawa", role: "", img: `${A}/team/amani.jpg` },
     { name: "Advocate Pasience Mlowe", role: "", img: `${A}/team/pasience.jpg` },
     { name: "Alpha Emil Bisimba", role: "", img: `${A}/team/alpha.jpg` },
     { name: "Adenmaris Gerald Kowero", role: "", img: `${A}/team/adenmaris.jpg` },
+    { name: "Peter", role: "", img: `${A}/team/peter.jpg` }, // TODO client: full name + title
   ],
 };
 
@@ -217,7 +218,7 @@ export const PROJECTS: Project[] = [
     title: "Journey towards World Environment Day",
     img: `${A}/projects/jowed.jpg`,
     intro:
-      "This is an annual project aiming at community education and inclusive social action. It was launched on 24th June 2023 by Hon. Deputy Speaker Mussa Azzan Zungu (MP). Within this project there are a number of programs as follows:-",
+      "Flagship \u2022 2023\u20132025 and continuing. Our signature campaign asking: What\u2019s next for the world environment? What approaches must we adopt for resilience and accelerating ecosystem restoration? JOWED spans re-forestation, sensitization, clean-ups and advocacy, with objectives and locations differing annually to regrow and rebuild critical municipalities and forests. It was launched on 24th June 2023 by Hon. Deputy Speaker Mussa Azzan Zungu (MP). Its programs include:",
     body: [],
     bullets: [
       "Introduction of Mazingira (Environment) Clubs in Secondary Schools, colleges, Universities and Working Places. We are current introducing Universities Environment Clubs Network called UNI Mazingira Clubs Network (UMCN).",
@@ -244,13 +245,22 @@ export const PROJECTS: Project[] = [
     slug: "world-wetlands-day",
     title: "World Wetlands Day",
     img: `${A}/sdg.jpg`, // TEMP image — awaiting project photo from client
-    body: ["Project description coming soon."], // awaiting client write-up
+    intro: "Innovation in Action for Wetlands \u2022 2 February 2027 \u2022 Kirumba Grounds, Mwanza",
+    body: [
+      "The Tanzania World Wetlands Day 2027 project, under the theme \u201cInnovation in Action for Wetlands,\u201d is a national celebration and green-economy platform taking place on 2 February 2027 at Kirumba Grounds, Mwanza, on the shores of Lake Victoria, aiming to reframe wetlands from wastelands to wealth by linking conservation, culture, and business.",
+      "The event is expected to draw 5,000+ people onsite and reach 2M+ through media, and will feature a Lake Victoria Ngalawa sailing race, a Green Business Expo with 60+ green startups, a startup competition, a Lake Victoria shoreline cleanup and tree planting, a school essay competition, the launch of Mazingira Environment Magazine, and an Awards & Stakeholders Forum, alongside a pre-event Wetlands Ambassador tour across Tanzania\u2019s four Ramsar sites.",
+      "Hosted in partnership with government, the Mwanza City Council, and local communities, and aligned to the Ramsar Convention and SDGs 6, 13, 14, and 15, the project seeks TZS 272M in sponsorship, offering sponsors national visibility, government access, and ESG-ready impact reporting.",
+    ],
   },
   {
     slug: "recycling",
     title: "Recycling",
     img: `${A}/projects/recycling.jpg`,
-    body: ["Project description coming soon."], // TODO: capture from live site
+    intro: "Circular economy \u2022 Target 2027",
+    body: [
+      "Plastic recycling and encouraging use of natural-gas vehicles are essential to attain zero waste. We plan to build a strong plastic-recycling industry and a major natural-gas filling station. These projects will then fund other programmes run by our NGO. Costs are relatively high despite a conducive government investment environment.",
+      "We urge stakeholders to partner with us and fund these projects.",
+    ],
   },
   {
     slug: "clean-energy",
@@ -262,13 +272,17 @@ export const PROJECTS: Project[] = [
     slug: "bees-and-biodiversity",
     title: "Bees and Biodiversity",
     img: `${A}/projects/bees.jpg`,
-    body: ["Project description coming soon."], // TODO: capture from live site
+    body: [
+      "Training communities at family level in beekeeping business: a direct solution to tree cutting. Selling honey and other bee products gives families a sustainable income, enabling them to use clean energy for cooking (such as gas instead of charcoal) and for other domestic use.",
+    ],
   },
   {
     slug: "anti-poaching-land-acquisition-and-afforestation",
     title: "Anti-Poaching, Land Acquisition and Afforestation",
     img: `${A}/projects/anti-poaching.jpg`,
-    body: ["Project description coming soon."], // TODO: capture from live site
+    body: [
+      "Become a pioneer in climate protection and nature restoration by donating towards land acquisition for ecosystem restoration. From 2028, upon completion of our recycling industries and clean-energy filling stations, we will start buying lands from communities with high levels of deforestation and restore them, for recreation, small-scale agriculture, beekeeping and afforestation training.",
+    ],
   },
   {
     slug: "tourism",
