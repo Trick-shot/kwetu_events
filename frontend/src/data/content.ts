@@ -176,42 +176,49 @@ export const ABOUT = {
     "We also bring a strong interest in coaching and capability building, within an emphasis on emotional intelligence and effective partners relations.",
   team: [
     {
+      slug: "dr-switbert-z-mkama",
       name: "Dr. Switbert Z. Mkama (PhD)",
       role: "Chairman of the Board",
       img: `${A}/team/zacharia.jpg`,
       bio: "Chairs the Board and plays a major part in protecting and advancing the image of the organisation. Vast experience in leadership and environment activities. Hon. Dr. Mkama is a Member of Parliament and Deputy Minister, Ministry of Communication and Information Technology.",
     },
     {
+      slug: "ms-josca-amri-mwoshezi",
       name: "Ms. Josca Amri Mwoshezi",
       role: "Vice Chairwoman",
       img: `${A}/team/josca.jpg`,
       bio: "Assists the Board Chairman. Master\u2019s in Mental Health, Muhimbili University of Health and Allied Sciences. Retired nurse with over 25 years at Muhimbili National Hospital, including more than five years in managerial positions.",
     },
     {
+      slug: "amani-sapi-mkwawa",
       name: "Amani Sapi Mkwawa",
       role: "Executive Director & Founder",
       img: `${A}/team/amani.jpg`,
       bio: "Environmentalist and founder of Kwetu Events International Initiative and the World Environment Day Project (JOWED). Vast experience in project management, fundraising and fund management. Basic education in Accountancy; currently pursuing a BA in Natural Resources Management at the Open University of Tanzania. Also Secretary to the Board & CEO.",
     },
     {
+      slug: "adv-pasience-mlowe",
       name: "Adv. Pasience Mlowe",
       role: "Chief Legal Advisor & Human Resource Officer",
       img: `${A}/team/pasience.jpg`,
       bio: "Handles all legal and human-resource affairs. Vast experience in human-rights affairs; tremendous experience in NGO management and a reputable work history.",
     },
     {
+      slug: "alpha-emil-bisimba",
       name: "Alpha Emil Bisimba",
       role: "Chief Financial Officer",
       img: `${A}/team/alpha.jpg`,
       bio: "Handles financial affairs. BA (Hons) Accounting, University of Bedfordshire (UK); pursuing ACCA. Internal Auditor at Aga Khan Hospital; member of the Institute of Internal Auditors Tanzania (IIA). Also a Board Member.",
     },
     {
+      slug: "adenmaris-gerald-kowero",
       name: "Adenmaris Gerald Kowero",
       role: "Chief Communication Officer",
       img: `${A}/team/adenmaris.jpg`,
       bio: "Handles communication and branding. A unique touch in branding: the JOWED team relies on her talents in all media campaigns, marketing and online activities. Diploma in Law, Institute of Judicial Administration Lushoto (IJA); government employee, Mbozi District Court. Also a Board Member.",
     },
     {
+      slug: "peter-clement-kilanga",
       name: "Peter Clement Kilanga",
       role: "Chief Operations Officer",
       img: `${A}/team/peter.jpg`,
@@ -237,6 +244,7 @@ export interface Project {
   title: string;
   img: string;
   intro?: string;
+  pdf?: string;
   body: string[];
   bullets?: string[];
 }
@@ -252,6 +260,7 @@ export const PROJECTS: Project[] = [
     slug: "jowed",
     title: "Journey towards World Environment Day",
     img: `${A}/projects/jowed.jpg`,
+    pdf: "https://kei.or.tz/wp-content/uploads/2024/09/Journey-Toward-World-Environment-Day-JOWED.pdf",
     intro:
       "Flagship \u2022 2023\u20132025 and continuing. Our signature campaign asking: What\u2019s next for the world environment? What approaches must we adopt for resilience and accelerating ecosystem restoration? JOWED spans re-forestation, sensitization, clean-ups and advocacy, with objectives and locations differing annually to regrow and rebuild critical municipalities and forests. It was launched on 24th June 2023 by Hon. Deputy Speaker Mussa Azzan Zungu (MP). Its programs include:",
     body: [],
@@ -291,24 +300,26 @@ export const PROJECTS: Project[] = [
     slug: "recycling",
     title: "Recycling",
     img: `${A}/projects/recycling.jpg`,
-    intro: "Circular economy \u2022 Target 2027",
     body: [
-      "Plastic recycling and encouraging use of natural-gas vehicles are essential to attain zero waste. We plan to build a strong plastic-recycling industry and a major natural-gas filling station. These projects will then fund other programmes run by our NGO. Costs are relatively high despite a conducive government investment environment.",
-      "We urge stakeholders to partner with us and fund these projects.",
+      "We believe an ideal strategy to solve a community pollution problem is to create a business around it. It is for this reason our team is current researching on building a high capacity recycling industry. We will recycle plastics and rubber wastes; we will also invest on hot dip galvanizing, chemical waste management and scrap metals recycling. By the End of 2026 we will have secured land, and prepared a business plan for this project.",
+      "Plastic recycling and encouraging use of natural-gas vehicles are essential to attain zero waste. These projects will then fund other programmes run by our NGO. We urge stakeholders to partner with us and fund these projects.",
     ],
   },
   {
     slug: "clean-energy",
     title: "Clean Energy",
     img: `${A}/projects/clean-energy.jpg`,
-    body: ["Project description coming soon."], // TODO: capture from live site
+    body: [
+      "In context of building strong, sustainable green businesses we are planning to building a natural gas filling station for vehicles and cooking facilities. We will also establish electricity filling stop for vehicles and machines. Currently in Dar Es Salaam, Tanzania (Major trade City) we have only two natural gas filling stations; this poses as a set-back to our zero waste campaign. We believe these businesses will provide strong funding to our NGO making it possible to run its activities with very little if not zero external grants and sponsorships.",
+    ],
   },
   {
     slug: "bees-and-biodiversity",
     title: "Bees and Biodiversity",
     img: `${A}/projects/bees.jpg`,
     body: [
-      "Training communities at family level in beekeeping business: a direct solution to tree cutting. Selling honey and other bee products gives families a sustainable income, enabling them to use clean energy for cooking (such as gas instead of charcoal) and for other domestic use.",
+      "GCI gives special attention to bees since they can be a strong yet, if properly farmed, environmental friendly ally. We believe bee-keeping can be a major alternative to charcoal business since communities will have to plant trees instead of cutting them or burning them. Here we are advocating on production of environment friendly bee hives, and sustainable markets availability for bee products including honey, bee pollen, propolis, bee bread, royal jelly, and beeswax.",
+      "We are to establish an action-based bee keeping training forum for local households and communities to engage in bee-keeping. In this regard all biodiversity is to be conserved accordingly and utilized only when scientifically approved to be eco-friendly.",
     ],
   },
   {
@@ -316,14 +327,18 @@ export const PROJECTS: Project[] = [
     title: "Anti-Poaching, Land Acquisition and Afforestation",
     img: `${A}/projects/anti-poaching.jpg`,
     body: [
-      "Become a pioneer in climate protection and nature restoration by donating towards land acquisition for ecosystem restoration. From 2028, upon completion of our recycling industries and clean-energy filling stations, we will start buying lands from communities with high levels of deforestation and restore them, for recreation, small-scale agriculture, beekeeping and afforestation training.",
+      "From 2028 upon completion of construction of recycling industries and the clean energy filling stations; we will start buying lands from communities with high levels of deforestation and restore them, these lands will then be utilized for recreational purposes, small scale agriculture, bee keeping, and afforestation trainings.",
+      "Often deforestation goes with fire burning and poaching activities; training our communities to whistle blowing will be our core agenda. This is to be adopted and practiced from today.",
     ],
   },
   {
     slug: "tourism",
     title: "Tourism",
     img: `${A}/projects/tourism.jpg`,
-    body: ["Project description coming soon."], // TODO: capture from live site
+    body: [
+      "What a better business to a well conserved environment than tourism? What a better alternative for youth in our community to burning of forests, to charcoal production, to cutting of trees than tourism? By transforming the land acquired by our NGO from highly deforested areas into gardens, parks, bee farms tourism can be made possible also by conserving the available touristic attractions tourism can be a major source of income to our local communities enabling them to afford clean energy for cooking and other day to day activities.",
+      "We are to advocate conservation of our touristic attractions, and youth participation in tourism activities.",
+    ],
   },
 ];
 
@@ -332,6 +347,7 @@ export interface NewsPost {
   title: string;
   date: string;
   author: string;
+  category: string;
   img: string;
   body: string[];
 }
@@ -352,8 +368,11 @@ export const NEWS: NewsPost[] = [
       "Giving our gratitude to the Lord Mayor of Dar Es Salaam City Omary Kumbilamoto for his support during the Launching of JOWED",
     date: "November 5, 2019",
     author: "Admin",
-    img: `${A}/news-1.jpg`,
-    body: ["Full story coming soon."],
+    category: "Business",
+    img: `${A}/news/news-mayor.jpg`,
+    body: [
+      "Giving our gratitude to the Lord Mayor of Dar Es Salaam City Omary Kumbilamoto for his support during the Launching of JOWED in June 2023",
+    ],
   },
   {
     slug: "planting-trees-world-environment-day",
@@ -361,8 +380,11 @@ export const NEWS: NewsPost[] = [
       "Planting Trees to Commemorate the World Environment Day with staff member from Medical Stores Department of Tanzania",
     date: "November 5, 2019",
     author: "Admin",
-    img: `${A}/news-2.jpg`,
-    body: ["Full story coming soon."],
+    category: "Business",
+    img: `${A}/news/news-msd-trees.jpg`,
+    body: [
+      "Planting Trees to Commemorate the World Environment Day with staff member from Medical Stores Department of Tanzania",
+    ],
   },
   {
     slug: "introducing-ngo-deputy-speaker",
@@ -370,26 +392,37 @@ export const NEWS: NewsPost[] = [
       "Introducing and Explaining the importance of our NGO to the Deputy Speaker of the Parliament of United Replic of Tanzania Hon. Mussa Azzan Zungu (MP)",
     date: "November 5, 2019",
     author: "Admin",
-    img: `${A}/news-3.jpg`,
-    body: ["Full story coming soon."],
+    category: "Business",
+    img: `${A}/news/news-deputy-speaker.jpg`,
+    body: [
+      "Introducing and Explaining the importance of our NGO to the Deputy Speaker of the Parliament of United Replic of Tanzania Hon. Mussa Azzan Zungu (MP). Mr Deputy Speaker was the Guest of Honor during the Launching Ceremony of JOWED, Wall Of Fame and Jenga Ilala ya Kijani Projects!",
+    ],
   },
   {
     slug: "courtesy-visit-roads-fund-board",
     title:
-      "We paid a courtesy visit in Dodoma to Mr. Rashid Kalimbaga the Managing Director of Roads Fund Board",
+      "We paid a courtesy visit in Dodoma to Mr. Rashid Kalimbaga the Managing Director of Roads Fund Board (RFB) of Tanzania",
     date: "November 5, 2019",
     author: "Admin",
-    img: ASSETS.kids,
-    body: ["Full story coming soon."],
+    category: "Business",
+    img: `${A}/news/news-rfb.jpg`,
+    body: [
+      "We paid a courtesy visit in Dodoma to Mr. Rashid Kalimbaga the Managing Director of Roads Fund Board (RFB) of Tanzania who planted a tree we provided to Commemorate the World Environment Day in 2023! RFB is one of our important partner and sponsor",
+    ],
   },
   {
     slug: "visit-dr-switbert-mkama",
     title:
-      "Paid a visit to Dr. Switbert Z. Mkama in 2023 then Deputy Permanent Secretary (PS) Vice President's Office",
+      "Paid a visit to Dr. Switbert Z. Mkama in 2023 then Deputy Permanent Secretary (PS) Vice President's Office (Environment)",
     date: "November 5, 2019",
     author: "Admin",
-    img: ASSETS.kids,
-    body: ["Full story coming soon."],
+    category: "Strategy",
+    img: `${A}/news/news-mkama.jpg`,
+    body: [
+      "Paid a visit to Dr. Switbert Z. Mkama in 2023 then Deputy Permanent Secretary (PS) Vice President's Office (Environment).",
+      "The PS formally endorsed our initiative by a letter of endorsement!",
+      "He is our all time Patron!",
+    ],
   },
 ];
 

@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import ScrollTopFab from "./components/ScrollTopFab";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import TeamDetail from "./pages/TeamDetail";
 import WhatWeDo from "./pages/WhatWeDo";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -32,6 +33,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
+          <Route path="/team/:slug" element={<TeamDetail />} />
           <Route path="/what-we-do" element={<WhatWeDo />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />

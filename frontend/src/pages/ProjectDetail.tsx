@@ -34,6 +34,12 @@ export default function ProjectDetail() {
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 11 } }}>
         <Reveal>
           <SectionHeading label="Projects" title={project.title} />
+          <Box
+            component="img"
+            src={project.img}
+            alt={project.title}
+            sx={{ width: "100%", maxWidth: 900, display: "block", mb: 4, boxShadow: 2 }}
+          />
           {project.intro && <Typography sx={{ mb: 2.5 }}>{project.intro}</Typography>}
           {project.body.map((t, i) => (
             <Typography key={i} sx={{ mb: 2.5 }}>
@@ -50,9 +56,19 @@ export default function ProjectDetail() {
               ))}
             </Box>
           )}
-          <Button variant="contained" startIcon={<PictureAsPdfOutlinedIcon />} sx={{ mt: 3 }}>
-            Download PDF
-          </Button>
+          {project.pdf && (
+            <Button
+              component="a"
+              href={project.pdf}
+              target="_blank"
+              rel="noopener"
+              variant="contained"
+              startIcon={<PictureAsPdfOutlinedIcon />}
+              sx={{ mt: 3 }}
+            >
+              Download PDF
+            </Button>
+          )}
         </Reveal>
 
         {/* Prev / Next */}

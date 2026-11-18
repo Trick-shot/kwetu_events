@@ -11,13 +11,20 @@ import {
 } from "@mui/material";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutlined";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import PageBanner from "../components/PageBanner";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
 import { NEWS, NEWS_PAGE } from "../data/content";
 
 export default function News() {
+  const [params] = useSearchParams();
+  const q = (params.get("q") || "").toLowerCase();
+  const posts = q
+    ? NEWS.filter(
+        (p) => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
+      )
+    : NEWS;
   return (
     <Box>
       <PageBanner title="News & Updates" crumb="News & Updates" />
@@ -46,8 +53,16 @@ export default function News() {
             </Reveal>
           </Grid>
         </Grid>
+        {q && (
+          <Typography sx={{ mb: 3 }} color="text.secondary">
+            {posts.length} result{posts.length === 1 ? "" : "s"} for "{params.get("q")}" —{" "}
+            <Box component={Link} to="/news-updates" sx={{ color: "secondary.main" }}>
+              clear
+            </Box>
+          </Typography>
+        )}
         <Grid container spacing={4}>
-          {NEWS.map((post, i) => (
+          {posts.map((post, i) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.slug}>
               <Reveal delay={(i % 3) * 0.12}>
                 <Card elevation={0} sx={{ overflow: "visible", bgcolor: "transparent" }}>
