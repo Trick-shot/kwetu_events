@@ -7,10 +7,12 @@ interface PageBannerProps {
   title: string;
   crumb: string;
   image?: string;
+  /** Optional middle breadcrumb steps between Home and the current page. */
+  trail?: { label: string; to: string }[];
 }
 
 /** Inner-page banner: photo background, dark overlay, centered title + breadcrumb. */
-export default function PageBanner({ title, crumb, image = ASSETS.banner }: PageBannerProps) {
+export default function PageBanner({ title, crumb, image = ASSETS.banner, trail = [] }: PageBannerProps) {
   return (
     <Box
       sx={{
@@ -38,6 +40,17 @@ export default function PageBanner({ title, crumb, image = ASSETS.banner }: Page
             <MuiLink component={Link} to="/" underline="hover" sx={{ color: "inherit", fontSize: 14 }}>
               Home
             </MuiLink>
+            {trail.map((t) => (
+              <MuiLink
+                key={t.to}
+                component={Link}
+                to={t.to}
+                underline="hover"
+                sx={{ color: "inherit", fontSize: 14 }}
+              >
+                {t.label}
+              </MuiLink>
+            ))}
             <Typography sx={{ fontSize: 14, color: "inherit" }}>{crumb}</Typography>
           </Breadcrumbs>
         </motion.div>

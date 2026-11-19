@@ -1,109 +1,222 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { useEffect, useState } from "react";
+import { Box, Container, Grid, IconButton, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import PictureAsPdfOutlinedIcon from "@mui/icons-material/PictureAsPdfOutlined";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Link, Navigate, useParams } from "react-router-dom";
 import PageBanner from "../components/PageBanner";
+import PdfDownloadBox from "../components/PdfDownloadBox";
 import Reveal from "../components/Reveal";
-import SectionHeading from "../components/SectionHeading";
-import { PROJECTS } from "../data/content";
+import { PROJECTS, type Project } from "../data/content";
 import { BRAND } from "../theme";
 
-export default function ProjectDetail() {
-  const { slug } = useParams();
-  const idx = PROJECTS.findIndex((p) => p.slug === slug);
-  if (idx === -1) return <Navigate to="/projects" replace />;
-  const project = PROJECTS[idx];
-  const prev = PROJECTS[(idx - 1 + PROJECTS.length) % PROJECTS.length];
-  const next = PROJECTS[(idx + 1) % PROJECTS.length];
-  const related = PROJECTS.filter((p) => p.slug !== slug).slice(0, 3);
+const HEADING_FONT = "Barlow, Roboto, sans-serif";
+const BODY_SX = { fontSize: 15, lineHeight: "27px", color: "#383838", mb: 2.5 } as const;
 
+/** Small label with a short line, then the H3 project title. */
+function HeadingBlock({ project }: { project: Project }) {
   return (
-    <Box>
-      <PageBanner title={project.title} crumb={project.title} />
-      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 11 } }}>
+    <Box sx={{ mb: { xs: 4, md: 5 } }}>
+      <Stack direction="row" spacing={1.5} sx={{ alignItems: "center", mb: 1.5 }}>
+        <Box sx={{ width: 32, height: 3, bgcolor: BRAND.primary }} />
+        <Typography sx={{ fontSize: 16, fontWeight: 600, color: "text.primary" }}>{project.label}</Typography>
+      </Stack>
+      <Typography
+        component="h3"
+        sx={{ fontFamily: HEADING_FONT, fontWeight: 700, fontSize: { xs: 28, md: 36 }, lineHeight: 1.2, color: "text.primary" }}
+      >
+        {project.heading}
+      </Typography>
+    </Box>
+  );
+}
+
+function ProjectImage({ project }: { project: Project }) {
+  return (
+    <Box
+      component="img"
+      src={project.image}
+      alt={project.title}
+      sx={{ width: "100%", display: "block", borderRadius: project.pdfs.length ? "7px 7px 0 0" : 0 }}
+    />
+  );
+}
+
+/** Default layout (projects 2-6): image left, text right. */
+function StandardLayout({ project }: { project: Project }) {
+  return (
+    <Grid container spacing={{ xs: 4, md: 8 }}>
+      <Grid size={{ xs: 12, md: 7 }}>
         <Reveal>
-          <SectionHeading label="Projects" title={project.title} />
-          <Box
-            component="img"
-            src={project.img}
-            alt={project.title}
-            sx={{ width: "100%", maxWidth: 900, display: "block", mb: 4, boxShadow: 2 }}
-          />
-          {project.intro && <Typography sx={{ mb: 2.5 }}>{project.intro}</Typography>}
+          <ProjectImage project={project} />
+          <PdfDownloadBox pdfs={project.pdfs} />
+        </Reveal>
+      </Grid>
+      <Grid size={{ xs: 12, md: 5 }}>
+        <Reveal delay={0.1}>
           {project.body.map((t, i) => (
-            <Typography key={i} sx={{ mb: 2.5 }}>
+            <Typography key={i} sx={BODY_SX}>
+              {t}
+            </Typography>
+          ))}
+        </Reveal>
+      </Grid>
+    </Grid>
+  );
+}
+
+/** JOWED layout: intro + arrow list on the left (~1/3), image + download boxes on the right (~2/3). */
+function ListLayout({ project }: { project: Project }) {
+  return (
+    <Grid container spacing={{ xs: 4, md: 6 }}>
+      {/* Image column first on mobile */}
+      <Grid size={{ xs: 12, md: 8 }} sx={{ order: { xs: 1, md: 2 } }}>
+        <Reveal delay={0.1}>
+          <ProjectImage project={project} />
+          <PdfDownloadBox pdfs={project.pdfs} />
+        </Reveal>
+      </Grid>
+      <Grid size={{ xs: 12, md: 4 }} sx={{ order: { xs: 2, md: 1 } }}>
+        <Reveal>
+          {project.intro && <Typography sx={BODY_SX}>{project.intro}</Typography>}
+          {project.body.map((t, i) => (
+            <Typography key={i} sx={BODY_SX}>
               {t}
             </Typography>
           ))}
           {project.bullets && (
-            <Box component="ul" sx={{ pl: 0, listStyle: "none" }}>
+            <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
               {project.bullets.map((b, i) => (
                 <Stack component="li" direction="row" spacing={1.2} key={i} sx={{ mb: 1.5 }}>
-                  <ArrowForwardIcon sx={{ color: BRAND.primary, fontSize: 18, mt: 0.5, flexShrink: 0 }} />
-                  <Typography variant="body2">{b}</Typography>
+                  <ArrowForwardIcon sx={{ color: BRAND.secondary, fontSize: 16, mt: "7px", flexShrink: 0 }} />
+                  <Typography sx={{ fontSize: 16, lineHeight: "30px", color: "#383838" }}>{b}</Typography>
                 </Stack>
               ))}
             </Box>
           )}
-          {project.pdf && (
-            <Button
-              component="a"
-              href={project.pdf}
-              target="_blank"
-              rel="noopener"
-              variant="contained"
-              startIcon={<PictureAsPdfOutlinedIcon />}
-              sx={{ mt: 3 }}
-            >
-              Download PDF
-            </Button>
-          )}
         </Reveal>
+      </Grid>
+    </Grid>
+  );
+}
 
-        {/* Prev / Next */}
-        <Stack direction="row" sx={{ justifyContent: "space-between", mt: 8, mb: 6 }}>
-          <Button component={Link} to={`/projects/${prev.slug}`} startIcon={<ArrowBackIcon />}>
-            Previous
-          </Button>
-          <Button component={Link} to={`/projects/${next.slug}`} endIcon={<ArrowForwardIcon />}>
-            Next
-          </Button>
-        </Stack>
+/** Related projects carousel: 3 visible on desktop, round white arrows, title on hover. */
+function RelatedCarousel({ current }: { current: string }) {
+  const theme = useTheme();
+  const isMd = useMediaQuery(theme.breakpoints.up("md"));
+  const isSm = useMediaQuery(theme.breakpoints.up("sm"));
+  const perView = isMd ? 3 : isSm ? 2 : 1;
+  const items = PROJECTS.filter((p) => p.slug !== current);
+  const maxStart = Math.max(0, items.length - perView);
+  const [start, setStart] = useState(0);
 
-        {/* Related */}
-        <Typography variant="h5" sx={{ mb: 3 }}>
-          More Projects
-        </Typography>
-        <Grid container spacing={4}>
-          {related.map((p) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={p.slug}>
-              <Card>
-                <CardActionArea component={Link} to={`/projects/${p.slug}`}>
-                  <CardMedia
-                    component="img"
-                    image={p.img}
-                    alt={p.title}
-                    sx={{ aspectRatio: "600/332", objectFit: "cover" }}
-                  />
-                  <Typography variant="h6" sx={{ p: 2, fontSize: 16 }}>
-                    {p.title}
-                  </Typography>
-                </CardActionArea>
-              </Card>
-            </Grid>
+  useEffect(() => setStart(0), [current, perView]);
+
+  const go = (dir: number) => setStart((s) => (s + dir < 0 ? maxStart : s + dir > maxStart ? 0 : s + dir));
+
+  const arrowSx = {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: 2,
+    width: 44,
+    height: 44,
+    bgcolor: "#fff",
+    color: BRAND.ink,
+    boxShadow: 3,
+    "&:hover": { bgcolor: "#fff", color: BRAND.primary },
+  } as const;
+
+  return (
+    <Box sx={{ position: "relative", mt: { xs: 7, md: 9 }, px: { xs: 0, sm: 7 } }}>
+      <IconButton aria-label="Previous projects" onClick={() => go(-1)} sx={{ ...arrowSx, left: { xs: 4, sm: 0 } }}>
+        <ChevronLeftIcon />
+      </IconButton>
+      <Box sx={{ overflow: "hidden" }}>
+        <Box
+          sx={{
+            display: "flex",
+            transition: "transform .5s ease",
+            transform: `translateX(-${(start * 100) / perView}%)`,
+          }}
+        >
+          {items.map((p) => (
+            <Box key={p.slug} sx={{ flex: `0 0 ${100 / perView}%`, px: 1.25, boxSizing: "border-box" }}>
+              <Box
+                component={Link}
+                to={`/portfolio/${p.slug}`}
+                aria-label={p.title}
+                sx={{
+                  position: "relative",
+                  display: "block",
+                  overflow: "hidden",
+                  borderRadius: "5px",
+                  aspectRatio: "310 / 304",
+                  "& .shade, & .title": { transition: "opacity .35s ease, transform .35s ease" },
+                  "&:hover .shade, &:focus-visible .shade": { opacity: 1 },
+                  "&:hover .title, &:focus-visible .title": { opacity: 1, transform: "translateY(0)" },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+                <Box
+                  className="shade"
+                  sx={{
+                    position: "absolute",
+                    inset: 0,
+                    opacity: 0,
+                    background: "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.1) 60%)",
+                  }}
+                />
+                <Typography
+                  className="title"
+                  sx={{
+                    position: "absolute",
+                    left: 20,
+                    right: 20,
+                    bottom: 18,
+                    color: "#fff",
+                    fontFamily: HEADING_FONT,
+                    fontWeight: 700,
+                    fontSize: 18,
+                    lineHeight: 1.3,
+                    opacity: 0,
+                    transform: "translateY(10px)",
+                  }}
+                >
+                  {p.title}
+                </Typography>
+              </Box>
+            </Box>
           ))}
-        </Grid>
+        </Box>
+      </Box>
+      <IconButton aria-label="Next projects" onClick={() => go(1)} sx={{ ...arrowSx, right: { xs: 4, sm: 0 } }}>
+        <ChevronRightIcon />
+      </IconButton>
+    </Box>
+  );
+}
+
+export default function ProjectDetail() {
+  const { slug } = useParams();
+  const project = PROJECTS.find((p) => p.slug === slug);
+  if (!project) return <Navigate to="/projects" replace />;
+
+  return (
+    <Box>
+      <PageBanner title={project.title} crumb={project.title} trail={[{ label: "Portfolio", to: "/projects" }]} />
+      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 11 } }}>
+        <Reveal>
+          <HeadingBlock project={project} />
+        </Reveal>
+        {project.bullets ? <ListLayout project={project} /> : <StandardLayout project={project} />}
+        <RelatedCarousel current={project.slug} />
       </Container>
     </Box>
   );

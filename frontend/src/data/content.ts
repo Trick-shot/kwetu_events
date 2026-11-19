@@ -239,30 +239,46 @@ export const WHAT_WE_DO = {
   ],
 };
 
+export interface ProjectPdf {
+  title: string;
+  file: string;
+}
+
 export interface Project {
   slug: string;
-  title: string;
-  img: string;
+  title: string; // listing card + banner H1
+  heading: string; // detail page H3
+  label: string; // small label above the heading
+  img: string; // listing card crop (~370x204)
+  image: string; // full photo for the detail page + carousel
   intro?: string;
-  pdf?: string;
   body: string[];
   bullets?: string[];
+  pdfs: ProjectPdf[];
 }
 
 export const PROJECTS_PAGE = {
   title: "Empowering Communities Through Sustainable Innovation",
   blurb:
     "GCI empowers communities with eco-friendly solutions and green business opportunities, promoting sustainable practices for a greener future.",
+  banner: `${A}/projects-banner.jpg`,
 };
 
+const P = `${A}/projects`;
+const DOCS = `${import.meta.env.BASE_URL}docs`;
+
+// Single source of truth for the listing grid, detail pages and related carousel.
+// Body text is verbatim from the original kei.or.tz project pages (org name updated to GCI).
 export const PROJECTS: Project[] = [
   {
     slug: "jowed",
     title: "Journey towards World Environment Day",
-    img: `${A}/projects/jowed.jpg`,
-    pdf: "https://kei.or.tz/wp-content/uploads/2024/09/Journey-Toward-World-Environment-Day-JOWED.pdf",
+    heading: "Journey towards World Environment Day (JOWED)",
+    label: "Projects",
+    img: `${P}/jowed.jpg`,
+    image: `${P}/full/jowed.jpg`,
     intro:
-      "Flagship \u2022 2023\u20132025 and continuing. Our signature campaign asking: What\u2019s next for the world environment? What approaches must we adopt for resilience and accelerating ecosystem restoration? JOWED spans re-forestation, sensitization, clean-ups and advocacy, with objectives and locations differing annually to regrow and rebuild critical municipalities and forests. It was launched on 24th June 2023 by Hon. Deputy Speaker Mussa Azzan Zungu (MP). Its programs include:",
+      "This is an annual project aiming at community education and inclusive social action. It was launched on 24th June 2023 by Hon. Deputy Speaker Mussa Azzan Zungu (MP). Within this project there are a number of programs as follows:-",
     body: [],
     bullets: [
       "Introduction of Mazingira (Environment) Clubs in Secondary Schools, colleges, Universities and Working Places. We are current introducing Universities Environment Clubs Network called UNI Mazingira Clubs Network (UMCN).",
@@ -278,67 +294,83 @@ export const PROJECTS: Project[] = [
       "Commemorate international day of forestry each 21st March and World Environment Day On each 5th June.",
       "Attending local and international conferences on environment including the United Nations Climate Change Convention on Climate Change (UNFCCC).",
     ],
-  },
-  {
-    slug: "kivuli-cha-mama",
-    title: "Kivuli cha Mama",
-    img: `${A}/banner.jpg`, // TEMP image — awaiting project photo from client
-    body: ["Project description coming soon."], // awaiting client write-up
-  },
-  {
-    slug: "world-wetlands-day",
-    title: "World Wetlands Day",
-    img: `${A}/sdg.jpg`, // TEMP image — awaiting project photo from client
-    intro: "Innovation in Action for Wetlands \u2022 2 February 2027 \u2022 Kirumba Grounds, Mwanza",
-    body: [
-      "The Tanzania World Wetlands Day 2027 project, under the theme \u201cInnovation in Action for Wetlands,\u201d is a national celebration and green-economy platform taking place on 2 February 2027 at Kirumba Grounds, Mwanza, on the shores of Lake Victoria, aiming to reframe wetlands from wastelands to wealth by linking conservation, culture, and business.",
-      "The event is expected to draw 5,000+ people onsite and reach 2M+ through media, and will feature a Lake Victoria Ngalawa sailing race, a Green Business Expo with 60+ green startups, a startup competition, a Lake Victoria shoreline cleanup and tree planting, a school essay competition, the launch of Mazingira Environment Magazine, and an Awards & Stakeholders Forum, alongside a pre-event Wetlands Ambassador tour across Tanzania\u2019s four Ramsar sites.",
-      "Hosted in partnership with government, the Mwanza City Council, and local communities, and aligned to the Ramsar Convention and SDGs 6, 13, 14, and 15, the project seeks TZS 272M in sponsorship, offering sponsors national visibility, government access, and ESG-ready impact reporting.",
+    pdfs: [
+      {
+        title: "Journey Toward World Environment Day - JOWED",
+        file: `${DOCS}/Journey-Toward-World-Environment-Day-JOWED.pdf`,
+      },
+      {
+        title: "World Wetlands Day 2027 \u2013 Proposal",
+        file: `${DOCS}/World-Wetlands-Day-2027-Proposal.pdf`,
+      },
     ],
   },
   {
     slug: "recycling",
     title: "Recycling",
-    img: `${A}/projects/recycling.jpg`,
+    heading: "Recycling",
+    label: "Project",
+    img: `${P}/recycling.jpg`,
+    image: `${P}/full/recycling.jpg`,
     body: [
       "We believe an ideal strategy to solve a community pollution problem is to create a business around it. It is for this reason our team is current researching on building a high capacity recycling industry. We will recycle plastics and rubber wastes; we will also invest on hot dip galvanizing, chemical waste management and scrap metals recycling. By the End of 2026 we will have secured land, and prepared a business plan for this project.",
-      "Plastic recycling and encouraging use of natural-gas vehicles are essential to attain zero waste. These projects will then fund other programmes run by our NGO. We urge stakeholders to partner with us and fund these projects.",
     ],
+    pdfs: [],
   },
   {
     slug: "clean-energy",
     title: "Clean Energy",
-    img: `${A}/projects/clean-energy.jpg`,
+    heading: "Clean Energy",
+    label: "Project",
+    img: `${P}/clean-energy.jpg`,
+    image: `${P}/full/clean-energy.jpg`,
     body: [
       "In context of building strong, sustainable green businesses we are planning to building a natural gas filling station for vehicles and cooking facilities. We will also establish electricity filling stop for vehicles and machines. Currently in Dar Es Salaam, Tanzania (Major trade City) we have only two natural gas filling stations; this poses as a set-back to our zero waste campaign. We believe these businesses will provide strong funding to our NGO making it possible to run its activities with very little if not zero external grants and sponsorships.",
+    ],
+    pdfs: [
+      {
+        title: "Kivuli Cha Mama \u2013 Nishati Safi",
+        file: `${DOCS}/Kivuli-Cha-Mama.pdf`,
+      },
     ],
   },
   {
     slug: "bees-and-biodiversity",
     title: "Bees and Biodiversity",
-    img: `${A}/projects/bees.jpg`,
+    heading: "Bees and Biodiversity",
+    label: "Project",
+    img: `${P}/bees.jpg`,
+    image: `${P}/full/bees.jpg`,
     body: [
-      "GCI gives special attention to bees since they can be a strong yet, if properly farmed, environmental friendly ally. We believe bee-keeping can be a major alternative to charcoal business since communities will have to plant trees instead of cutting them or burning them. Here we are advocating on production of environment friendly bee hives, and sustainable markets availability for bee products including honey, bee pollen, propolis, bee bread, royal jelly, and beeswax.",
-      "We are to establish an action-based bee keeping training forum for local households and communities to engage in bee-keeping. In this regard all biodiversity is to be conserved accordingly and utilized only when scientifically approved to be eco-friendly.",
+      "GCI gives special attention to bees since the can be a strong yet if properly farmed environmental friendly. We believe bee-keeping can be a major alternative to charcoal business since communities will have to plant trees instead of cutting them or burning them. Here we are advocating on production of environment friendly bee hives, and sustainable markets availability for bee products including honey, bee pollen, propolis, bee bread, royal jelly, and beeswax. We are to establish an action-based bee keeping training forum for local households and communities to engage in bee-keeping. In this regard all biodiversity is to be conserved accordingly and s utilized only when scientifically approved to be eco-friendly.",
     ],
+    pdfs: [],
   },
   {
     slug: "anti-poaching-land-acquisition-and-afforestation",
     title: "Anti-Poaching, Land Acquisition and Afforestation",
-    img: `${A}/projects/anti-poaching.jpg`,
+    heading: "Anti-Poaching, Land Acquisition and Afforestation",
+    label: "Project",
+    img: `${P}/anti-poaching.jpg`,
+    image: `${P}/full/anti-poaching.jpg`,
     body: [
       "From 2028 upon completion of construction of recycling industries and the clean energy filling stations; we will start buying lands from communities with high levels of deforestation and restore them, these lands will then be utilized for recreational purposes, small scale agriculture, bee keeping, and afforestation trainings.",
       "Often deforestation goes with fire burning and poaching activities; training our communities to whistle blowing will be our core agenda. This is to be adopted and practiced from today.",
     ],
+    pdfs: [],
   },
   {
     slug: "tourism",
     title: "Tourism",
-    img: `${A}/projects/tourism.jpg`,
+    heading: "Tourism",
+    label: "Project",
+    img: `${P}/tourism.jpg`,
+    image: `${P}/full/tourism.jpg`,
     body: [
       "What a better business to a well conserved environment than tourism? What a better alternative for youth in our community to burning of forests, to charcoal production, to cutting of trees than tourism? By transforming the land acquired by our NGO from highly deforested areas into gardens, parks, bee farms tourism can be made possible also by conserving the available touristic attractions tourism can be a major source of income to our local communities enabling them to afford clean energy for cooking and other day to day activities.",
       "We are to advocate conservation of our touristic attractions, and youth participation in tourism activities.",
     ],
+    pdfs: [],
   },
 ];
 

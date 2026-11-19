@@ -13,6 +13,8 @@ export const BRAND = {
   dark: "#101014", // footer / dark bands
 };
 
+const HEADING = `"Barlow", "Roboto", "Helvetica", sans-serif`;
+
 const theme = createTheme({
   palette: {
     primary: { main: BRAND.primary, contrastText: "#FFFFFF" },
@@ -22,12 +24,13 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-    h1: { fontWeight: 700, lineHeight: 1.15 },
-    h2: { fontWeight: 700, lineHeight: 1.2 },
-    h3: { fontWeight: 700 },
-    h4: { fontWeight: 700 },
-    h5: { fontWeight: 700 },
-    h6: { fontWeight: 600 },
+    // Headings in Barlow, like the original site; body/nav stay Roboto
+    h1: { fontFamily: HEADING, fontWeight: 700, lineHeight: 1.15 },
+    h2: { fontFamily: HEADING, fontWeight: 700, lineHeight: 1.2 },
+    h3: { fontFamily: HEADING, fontWeight: 700 },
+    h4: { fontFamily: HEADING, fontWeight: 700 },
+    h5: { fontFamily: HEADING, fontWeight: 700 },
+    h6: { fontFamily: HEADING, fontWeight: 600 },
     body1: { color: BRAND.body, lineHeight: 1.8 },
     body2: { color: BRAND.body, lineHeight: 1.8 },
     button: { textTransform: "none", fontWeight: 600 },

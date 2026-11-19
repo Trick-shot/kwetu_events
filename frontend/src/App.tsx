@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Box } from "@mui/material";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import Preloader from "./components/Preloader";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -14,6 +14,11 @@ import ProjectDetail from "./pages/ProjectDetail";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import Contact from "./pages/Contact";
+
+function LegacyProjectRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/portfolio/${slug}`} replace />;
+}
 
 function ScrollToTopOnNavigate() {
   const { pathname } = useLocation();
@@ -36,7 +41,8 @@ export default function App() {
           <Route path="/team/:slug" element={<TeamDetail />} />
           <Route path="/what-we-do" element={<WhatWeDo />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/portfolio/:slug" element={<ProjectDetail />} />
+          <Route path="/projects/:slug" element={<LegacyProjectRedirect />} />
           <Route path="/news-updates" element={<News />} />
           <Route path="/news-updates/:slug" element={<NewsDetail />} />
           <Route path="/contact-us" element={<Contact />} />
