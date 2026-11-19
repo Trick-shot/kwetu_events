@@ -255,6 +255,8 @@ export interface Project {
   body: string[];
   bullets?: string[];
   pdfs: ProjectPdf[];
+  layout?: "list" | "standard"; // "list" = JOWED-style (text left, image right)
+  gallery?: string[];
 }
 
 export const PROJECTS_PAGE = {
@@ -299,11 +301,66 @@ export const PROJECTS: Project[] = [
         title: "Journey Toward World Environment Day - JOWED",
         file: `${DOCS}/Journey-Toward-World-Environment-Day-JOWED.pdf`,
       },
+    ],
+    layout: "list",
+  },
+  {
+    slug: "kivuli-cha-mama",
+    title: "Kivuli Cha Mama",
+    heading: "Kivuli Cha Mama \u2013 Nishati Safi",
+    label: "Project",
+    img: `${P}/kivuli-cha-mama.jpg`,
+    image: `${P}/full/kivuli-cha-mama.jpg`,
+    intro:
+      "\u201cUbunifu katika Sekta ya Usafirishaji kwa Ustawi wa Mazingira na Nishati Safi\u201d. Kivuli Cha Mama (Mother\u2019s Shade) is a network of passenger waiting shelters built to promote clean energy in transport, starting at the grassroots with boda boda and bajaj riders. The project is endorsed by the President\u2019s Office, the Vice President\u2019s Office (Environment) and the Ministry of Transport.",
+    body: [
+      "Tanzania has at least 1.6 million boda boda riders, and the transport sector keeps growing fast. It raises incomes for individuals and communities, but it also adds carbon emissions that drive climate change. Electric boda bodas and bajajis lack reliable places to charge, especially where riders live in crowded housing. Kivuli Cha Mama shelters give riders a safe place to wait for passengers and to charge electric vehicles free of charge, encouraging the switch to clean energy.",
+      "Starting in Dar es Salaam, 250 shelters are planned across 31 regions, delivered in four phases with local government authorities: launch and rider education, construction, trial and handover to riders, then operation, monitoring and evaluation. The total budget is TZS 2,041,250,000, and the project is run with partners including JUMIKITA (Tanzania social media journalists) and boda boda associations.",
+    ],
+    bullets: [
+      "Environment: two waste bins at every shelter (general and hazardous waste), making plastic collection for recycling easier, plus clean toilets at larger stations.",
+      "Clean energy: charging points and education on electric boda bodas, and attracting investors to produce durable electric motorcycles locally.",
+      "Health and safety: a first-aid kit and training at every shelter, 5,000 helmets (20 per shelter), reflectors and health insurance for every rider.",
+      "Comfort and inclusion: shade from long hours in the sun, a welcoming place for riders with albinism, and jobs for women in food and cleaning services.",
+      "Economy: formal registration with LATRA, advertising space on every shelter, rider SACCOS and a rider-owned ride-hailing app.",
+      "Security: CCTV cameras and solar panels at each shelter.",
+    ],
+    pdfs: [
+      {
+        title: "Kivuli Cha Mama \u2013 Nishati Safi",
+        file: `${DOCS}/Kivuli-Cha-Mama.pdf`,
+      },
+    ],
+    gallery: [`${P}/gallery/kivuli-shelter-2.jpg`, `${P}/gallery/kivuli-bodaboda.jpg`, `${P}/gallery/kivuli-launch.jpg`],
+  },
+  {
+    slug: "world-wetlands-day-2027",
+    title: "World Wetlands Day 2027",
+    heading: "World Wetlands Day 2027 \u2013 Innovation in Action for Wetlands",
+    label: "Project",
+    img: `${P}/world-wetlands-day.jpg`,
+    image: `${P}/full/world-wetlands-day.jpg`,
+    intro:
+      "On 2nd February 2027, Mwanza, home to Lake Victoria, will host Tanzania\u2019s first national-scale Green Businesses, Blue Economy & World Wetlands Day at Kirumba Grounds, under the UN 2027 theme \u201cInnovation in Action for Wetlands\u201d. It is an inclusive platform uniting corporates, green startups, fishermen, ports, government, media and communities.",
+    body: [
+      "Wetlands cover about 10% of Tanzania\u2019s land and are a lifeline for fisheries, tourism and agriculture. Globally, 35% of wetlands have been lost since 1970, vanishing three times faster than forests, and Lake Victoria is under pressure from plastic pollution, unsustainable fishing and mining waste runoff. Led by journalist and Project Ambassador Edgar Kibwana, the project sets out to reframe wetlands from wastelands to wealth.",
+    ],
+    bullets: [
+      "Wetlands Ambassador media tour of Tanzania\u2019s four Ramsar sites: Malagarasi-Muyovozi, Lake Natron Basin, Kilombero Valley and Rufiji-Mafia-Kilwa (Nov\u2013Dec 2026).",
+      "Lake Victoria shoreline cleanup and tree planting on the morning of 2nd February.",
+      "Green Businesses expo at Kirumba Grounds: recycling exhibitions, an eco-finance pavilion, workshops and Green Business StartUp Awards.",
+      "Ngalawa Race 2027 on Lake Victoria, with branded sails as moving billboards.",
+      "School essay competition and the launch of Mazingira Environment Magazine.",
+      "Targets: 5,000+ people onsite, 2M+ media reach, 2,000+ kg of waste collected and 500+ trees planted, aligned to the Ramsar Convention and the SDGs.",
+      "Sponsorship: total budget TZS 271,194,000, with tiers from Wetland (TZS 5M+) to the exclusive Sea Level title sponsor (TZS 200M). Download the proposal for details.",
+    ],
+    pdfs: [
       {
         title: "World Wetlands Day 2027 \u2013 Proposal",
         file: `${DOCS}/World-Wetlands-Day-2027-Proposal.pdf`,
       },
     ],
+    gallery: [`${P}/gallery/wwd-ngalawa-race.jpg`, `${P}/gallery/wwd-expo.jpg`, `${P}/gallery/wwd-lake-boats.jpg`],
   },
   {
     slug: "recycling",
@@ -327,12 +384,7 @@ export const PROJECTS: Project[] = [
     body: [
       "In context of building strong, sustainable green businesses we are planning to building a natural gas filling station for vehicles and cooking facilities. We will also establish electricity filling stop for vehicles and machines. Currently in Dar Es Salaam, Tanzania (Major trade City) we have only two natural gas filling stations; this poses as a set-back to our zero waste campaign. We believe these businesses will provide strong funding to our NGO making it possible to run its activities with very little if not zero external grants and sponsorships.",
     ],
-    pdfs: [
-      {
-        title: "Kivuli Cha Mama \u2013 Nishati Safi",
-        file: `${DOCS}/Kivuli-Cha-Mama.pdf`,
-      },
-    ],
+    pdfs: [],
   },
   {
     slug: "bees-and-biodiversity",

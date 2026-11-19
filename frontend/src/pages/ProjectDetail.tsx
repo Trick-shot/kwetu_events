@@ -42,23 +42,73 @@ function ProjectImage({ project }: { project: Project }) {
   );
 }
 
-/** Default layout (projects 2-6): image left, text right. */
+/** Intro, paragraphs and arrow list — shared by both layouts. */
+function ProjectText({ project }: { project: Project }) {
+  return (
+    <>
+      {project.intro && <Typography sx={BODY_SX}>{project.intro}</Typography>}
+      {project.body.map((t, i) => (
+        <Typography key={i} sx={BODY_SX}>
+          {t}
+        </Typography>
+      ))}
+      {project.bullets && (
+        <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
+          {project.bullets.map((b, i) => (
+            <Stack component="li" direction="row" spacing={1.2} key={i} sx={{ mb: 1.5 }}>
+              <ArrowForwardIcon sx={{ color: BRAND.secondary, fontSize: 16, mt: "7px", flexShrink: 0 }} />
+              <Typography sx={{ fontSize: 16, lineHeight: "30px", color: "#383838" }}>{b}</Typography>
+            </Stack>
+          ))}
+        </Box>
+      )}
+    </>
+  );
+}
+
+/** Optional photo row under the content (projects with extra images from their documents). */
+function Gallery({ project }: { project: Project }) {
+  if (!project.gallery?.length) return null;
+  return (
+    <Box
+      sx={{
+        mt: { xs: 5, md: 7 },
+        display: "grid",
+        gap: "20px",
+        gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" },
+      }}
+    >
+      {project.gallery.map((src) => (
+        <Reveal key={src}>
+          <Box
+            component="img"
+            src={src}
+            alt={`${project.title} photo`}
+            loading="lazy"
+            sx={{ width: "100%", aspectRatio: "16 / 10", objectFit: "cover", display: "block", borderRadius: "5px" }}
+          />
+        </Reveal>
+      ))}
+    </Box>
+  );
+}
+
+/** Default layout: image left, text right. */
 function StandardLayout({ project }: { project: Project }) {
   return (
     <Grid container spacing={{ xs: 4, md: 8 }}>
       <Grid size={{ xs: 12, md: 7 }}>
-        <Reveal>
-          <ProjectImage project={project} />
-          <PdfDownloadBox pdfs={project.pdfs} />
-        </Reveal>
+        {/* Photo + downloads stay in view while long text scrolls (desktop) */}
+        <Box sx={{ position: { md: "sticky" }, top: { md: 110 } }}>
+          <Reveal>
+            <ProjectImage project={project} />
+            <PdfDownloadBox pdfs={project.pdfs} />
+          </Reveal>
+        </Box>
       </Grid>
       <Grid size={{ xs: 12, md: 5 }}>
         <Reveal delay={0.1}>
-          {project.body.map((t, i) => (
-            <Typography key={i} sx={BODY_SX}>
-              {t}
-            </Typography>
-          ))}
+          <ProjectText project={project} />
         </Reveal>
       </Grid>
     </Grid>
@@ -78,22 +128,7 @@ function ListLayout({ project }: { project: Project }) {
       </Grid>
       <Grid size={{ xs: 12, md: 4 }} sx={{ order: { xs: 2, md: 1 } }}>
         <Reveal>
-          {project.intro && <Typography sx={BODY_SX}>{project.intro}</Typography>}
-          {project.body.map((t, i) => (
-            <Typography key={i} sx={BODY_SX}>
-              {t}
-            </Typography>
-          ))}
-          {project.bullets && (
-            <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
-              {project.bullets.map((b, i) => (
-                <Stack component="li" direction="row" spacing={1.2} key={i} sx={{ mb: 1.5 }}>
-                  <ArrowForwardIcon sx={{ color: BRAND.secondary, fontSize: 16, mt: "7px", flexShrink: 0 }} />
-                  <Typography sx={{ fontSize: 16, lineHeight: "30px", color: "#383838" }}>{b}</Typography>
-                </Stack>
-              ))}
-            </Box>
-          )}
+          <ProjectText project={project} />
         </Reveal>
       </Grid>
     </Grid>
@@ -215,7 +250,8 @@ export default function ProjectDetail() {
         <Reveal>
           <HeadingBlock project={project} />
         </Reveal>
-        {project.bullets ? <ListLayout project={project} /> : <StandardLayout project={project} />}
+        {project.layout === "list" ? <ListLayout project={project} /> : <StandardLayout project={project} />}
+        <Gallery project={project} />
         <RelatedCarousel current={project.slug} />
       </Container>
     </Box>
