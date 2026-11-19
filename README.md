@@ -1,6 +1,6 @@
-# Kwetu Events International Initiative — Website
+# Green Conservation Initiative — Website
 
-Rebuild of [kei.or.tz](https://kei.or.tz/) (WordPress) in the Trickshot Software stack.
+Website for Green Conservation Initiative (GCI), live at https://gcitz.org. Built by Trickshot Software.
 
 ## Structure
 
@@ -52,6 +52,5 @@ This SSHes into the VPS and runs `deploy/deploy.sh` there (git pull, `npm ci`,
 ## Content TODO before launch
 
 - Capture remaining project detail bodies and news post bodies from the live site
-- Pull original images from kei.or.tz `wp-content/uploads` onto our server
   (phase 1 hotlinks them for preview)
 - Endorsements PDF + project PDFs

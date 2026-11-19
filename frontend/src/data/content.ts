@@ -1,5 +1,5 @@
 // All site content for phase 1 (static). Phase 2: served by the Django API.
-// Images live in public/assets (captured from the client's current site at kei.or.tz).
+// Images live in public/assets.
 // Replace with full-resolution originals from the WP media library before final launch.
 
 const A = `${import.meta.env.BASE_URL}assets`;
@@ -126,8 +126,7 @@ export const ABOUT = {
   ],
   ourName: [
     "Green Conservation Initiative is an integrated communication & action-based Non-Governmental Organization (NGO) that understands the struggle of making the world a better place for its habitats and for the wellbeing of the universe. Tanzania is tirelessly dedicated to acting on climate change and global warming, and we exist to sustainably complement the efforts of the United Nations and the Government of Tanzania towards environmental conservation, forestry & biodiversity.",
-    "Our origin. We began as Kwetu Events International Initiative (KEI), \u2018Kwetu\u2019 meaning \u2018our home\u2019. That name captured our founding belief: the environment is our shared home, and protecting it starts at home, in our streets, schools, markets and forests. As our work expanded from events and campaigns into forestation, waste management, clean energy, green enterprise and land restoration, we adopted the name Green Conservation Initiative to reflect the full scope of what we do today.",
-    "What has not changed is our method: proper and timely knowledge communication, creative arts, technology and the internet, and deep community engagement. We use all of them together to turn awareness into action.",
+    "Our method is proper and timely knowledge communication, creative arts, technology and the internet, and deep community engagement. We use all of them together to turn awareness into action.",
   ],
   vision:
     "To create resilient and thriving local communities by fostering sustainable environments and effectively mitigating the impacts of climate change.",
@@ -194,7 +193,7 @@ export const ABOUT = {
       name: "Amani Sapi Mkwawa",
       role: "Executive Director & Founder",
       img: `${A}/team/amani.jpg`,
-      bio: "Environmentalist and founder of Kwetu Events International Initiative and the World Environment Day Project (JOWED). Vast experience in project management, fundraising and fund management. Basic education in Accountancy; currently pursuing a BA in Natural Resources Management at the Open University of Tanzania. Also Secretary to the Board & CEO.",
+      bio: "Environmentalist and founder of Green Conservation Initiative and the Journey towards World Environment Day project (JOWED). Vast experience in project management, fundraising and fund management. Basic education in Accountancy; currently pursuing a BA in Natural Resources Management at the Open University of Tanzania. Also Secretary to the Board & CEO.",
     },
     {
       slug: "adv-pasience-mlowe",
@@ -270,7 +269,7 @@ const P = `${A}/projects`;
 const DOCS = `${import.meta.env.BASE_URL}docs`;
 
 // Single source of truth for the listing grid, detail pages and related carousel.
-// Body text is verbatim from the original kei.or.tz project pages (org name updated to GCI).
+// Project copy approved by the client.
 export const PROJECTS: Project[] = [
   {
     slug: "jowed",
@@ -440,8 +439,6 @@ export const NEWS_PAGE = {
   title: "Latest News & Updates",
   blurb:
     "Stay updated with Green Conservation Initiative's latest projects and milestones. Our news and updates provide insights into our ongoing efforts in environmental conservation and community engagement.",
-  keiNote: "For more updates, visit www.kei.or.tz",
-  keiUrl: "https://www.kei.or.tz",
 };
 
 // TODO: capture full post bodies + real images from live site at content-migration time
